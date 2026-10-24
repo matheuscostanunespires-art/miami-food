@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17251d">
+  <title>Miami Food | Gestão</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f5f1;
+      color: #202820;
+    }
+    header {
+      background: #17251d;
+      color: white;
+      padding: 24px 18px;
+    }
+    header h1 { margin: 0; font-size: 27px; }
+    header p { margin: 8px 0 0; color: #d4e2d2; }
+    main { max-width: 760px; margin: auto; padding: 18px; }
+    .notice {
+      background: #fff5d9;
+      border: 1px solid #e7d49a;
+      padding: 13px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .card {
+      background: white;
+      padding: 18px 14px;
+      border-radius: 14px;
+      border: 1px solid #e5e8e1;
+    }
+    .card span { font-size: 25px; }
+    .card h2 { font-size: 16px; margin: 12px 0 5px; }
+    .card p { font-size: 13px; color: #626b62; margin: 0; line-height: 1.4; }
+    section {
+      background: white;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 14px;
+      border: 1px solid #e5e8e1;
+    }
+    section h2 { font-size: 19px; margin-top: 0; }
+    .action {
+      display: block;
+      background: #244d35;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: 9px;
+      font-weight: bold;
+    }
+    .muted { color: #667066; font-size: 14px; line-height: 1.5; }
+    footer { text-align: center; padding: 24px; color: #667066; font-size: 12px; }
+    @media (max-width: 360px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍔 Miami Food</h1>
+    <p>Sistema de gestão • Pedidos, cardápio e despesas</p>
+  </header>
+
+  <main>
+    <div class="notice">
+      <strong>Versão inicial</strong><br>
+      Esta é a estrutura visual do sistema. O login, o salvamento de dados
+      e os relatórios ainda precisam ser conectados e testados.
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <span>🧾</span>
+        <h2>Pedidos e vendas</h2>
+        <p>Registro de pedidos, itens e formas de pagamento.</p>
+      </div>
+      <div class="card">
+        <span>💸</span>
+        <h2>Despesas</h2>
+        <p>Registro de gastos e acompanhamento das despesas.</p>
+      </div>
+      <div class="card">
+        <span>🍕</span>
+        <h2>Cardápio</h2>
+        <p>Produtos, categorias e preços do Miami Food.</p>
+      </div>
+      <div class="card">
+        <span>📊</span>
+        <h2>Relatórios</h2>
+        <p>Visão financeira completa reservada ao administrador.</p>
+      </div>
+    </div>
+
+    <section>
+      <h2>🔐 Acesso ao sistema</h2>
+      <p class="muted">
+        O acesso será individual. O administrador poderá acompanhar os
+        resultados financeiros e controlar os acessos da equipe.
+      </p>
+      <p class="muted">
+        Ainda estamos configurando a autenticação e as permissões.
+        Não utilize esta página para registrar vendas reais.
+      </p>
+    </section>
+
+    <section>
+      <h2>📱 Gestão Miami Food</h2>
+      <p class="muted">
+        Projetado para uso no celular, com dados online compartilhados
+        após a integração com o banco de dados.
+      </p>
+    </section>
+  </main>
+
+  <footer>Miami Food • Gestão do negócio</footer>
+</body>
+</html>
