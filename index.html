@@ -9,125 +9,237 @@
   <style>
     * { box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f5f1;
-      color: #202820;
+      margin: 0; font-family: Arial, sans-serif;
+      background: #f4f5f1; color: #202820;
     }
-    header {
-      background: #17251d;
-      color: white;
-      padding: 24px 18px;
-    }
+    header { background: #17251d; color: white; padding: 22px 18px; }
     header h1 { margin: 0; font-size: 27px; }
     header p { margin: 8px 0 0; color: #d4e2d2; }
     main { max-width: 760px; margin: auto; padding: 18px; }
+    section, .card {
+      background: white; border: 1px solid #e5e8e1;
+      border-radius: 14px; padding: 18px; margin-bottom: 14px;
+    }
+    h2 { font-size: 19px; margin-top: 0; }
+    label { display: block; font-weight: bold; margin: 14px 0 6px; }
+    input {
+      width: 100%; padding: 13px; border: 1px solid #cbd2c8;
+      border-radius: 9px; font-size: 16px;
+    }
+    button {
+      width: 100%; padding: 14px; margin-top: 14px;
+      background: #244d35; color: white; border: 0;
+      border-radius: 9px; font-weight: bold; font-size: 16px;
+      cursor: pointer;
+    }
+    button:disabled { opacity: .6; }
+    .secondary { background: #5c665e; }
+    .muted { color: #626b62; font-size: 14px; line-height: 1.5; }
     .notice {
-      background: #fff5d9;
-      border: 1px solid #e7d49a;
-      padding: 13px;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.5;
+      background: #fff5d9; border: 1px solid #e7d49a;
+      padding: 13px; border-radius: 12px; font-size: 14px;
+      line-height: 1.5; margin-bottom: 16px;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin: 18px 0;
-    }
-    .card {
-      background: white;
-      padding: 18px 14px;
-      border-radius: 14px;
-      border: 1px solid #e5e8e1;
-    }
+    .grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+    .card { margin: 0; }
     .card span { font-size: 25px; }
-    .card h2 { font-size: 16px; margin: 12px 0 5px; }
-    .card p { font-size: 13px; color: #626b62; margin: 0; line-height: 1.4; }
-    section {
-      background: white;
-      border-radius: 14px;
-      padding: 18px;
-      margin-top: 14px;
-      border: 1px solid #e5e8e1;
-    }
-    section h2 { font-size: 19px; margin-top: 0; }
-    .action {
-      display: block;
-      background: #244d35;
-      color: white;
-      text-decoration: none;
-      text-align: center;
-      padding: 14px;
-      margin-top: 10px;
-      border-radius: 9px;
-      font-weight: bold;
-    }
-    .muted { color: #667066; font-size: 14px; line-height: 1.5; }
+    .card h3 { font-size: 16px; margin: 12px 0 5px; }
+    .card p { font-size: 13px; color: #626b62; line-height: 1.4; }
+    #message { white-space: pre-wrap; font-size: 14px; line-height: 1.5; }
+    .hidden { display: none !important; }
     footer { text-align: center; padding: 24px; color: #667066; font-size: 12px; }
-    @media (max-width: 360px) {
-      .grid { grid-template-columns: 1fr; }
-    }
+    @media(max-width:360px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🍔 Miami Food</h1>
-    <p>Sistema de gestão • Pedidos, cardápio e despesas</p>
-  </header>
+<header>
+  <h1>🍔 Miami Food</h1>
+  <p>Sistema de gestão • Pedidos, cardápio e despesas</p>
+</header>
 
-  <main>
-    <div class="notice">
-      <strong>Versão inicial</strong><br>
-      Esta é a estrutura visual do sistema. O login, o salvamento de dados
-      e os relatórios ainda precisam ser conectados e testados.
-    </div>
+<main>
+  <div class="notice">
+    <strong>Acesso seguro</strong><br>
+    Entre com o e-mail e a senha cadastrados pelo administrador.
+    Não existe cadastro público nesta página.
+  </div>
+
+  <section id="login">
+    <h2>🔐 Entrar no sistema</h2>
+    <p class="muted">Use seu acesso individual do Miami Food.</p>
+    <form id="loginForm">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" autocomplete="username"
+             placeholder="seuemail@exemplo.com" required>
+      <label for="password">Senha</label>
+      <input id="password" type="password" autocomplete="current-password"
+             placeholder="Digite sua senha" required>
+      <button id="loginButton" type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <h2>Olá, <span id="userName">usuário</span>!</h2>
+    <p class="muted">Perfil: <strong id="userRole"></strong></p>
 
     <div class="grid">
       <div class="card">
-        <span>🧾</span>
-        <h2>Pedidos e vendas</h2>
-        <p>Registro de pedidos, itens e formas de pagamento.</p>
+        <span>🧾</span><h3>Pedidos e vendas</h3>
+        <p>Módulo de pedidos em preparação.</p>
       </div>
       <div class="card">
-        <span>💸</span>
-        <h2>Despesas</h2>
-        <p>Registro de gastos e acompanhamento das despesas.</p>
+        <span>🍕</span><h3>Cardápio</h3>
+        <p>Módulo de produtos em preparação.</p>
       </div>
       <div class="card">
-        <span>🍕</span>
-        <h2>Cardápio</h2>
-        <p>Produtos, categorias e preços do Miami Food.</p>
+        <span>💸</span><h3>Despesas</h3>
+        <p>Módulo financeiro em preparação.</p>
       </div>
-      <div class="card">
-        <span>📊</span>
-        <h2>Relatórios</h2>
-        <p>Visão financeira completa reservada ao administrador.</p>
+      <div class="card" id="reportsCard">
+        <span>📊</span><h3>Relatórios</h3>
+        <p>Área reservada ao administrador.</p>
       </div>
     </div>
 
-    <section>
-      <h2>🔐 Acesso ao sistema</h2>
-      <p class="muted">
-        O acesso será individual. O administrador poderá acompanhar os
-        resultados financeiros e controlar os acessos da equipe.
-      </p>
-      <p class="muted">
-        Ainda estamos configurando a autenticação e as permissões.
-        Não utilize esta página para registrar vendas reais.
-      </p>
-    </section>
+    <p id="accessInfo" class="muted"></p>
+    <button id="logoutButton" class="secondary" type="button">Sair da conta</button>
+  </section>
 
-    <section>
-      <h2>📱 Gestão Miami Food</h2>
-      <p class="muted">
-        Projetado para uso no celular, com dados online compartilhados
-        após a integração com o banco de dados.
-      </p>
-    </section>
-  </main>
+  <p id="message" role="status" aria-live="polite"></p>
+</main>
 
-  <footer>Miami Food • Gestão do negócio</footer>
+<footer>Miami Food • Gestão do negócio</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(() => {
+  const SUPABASE_URL = 'https://colqlwyqbkbtabefqbbn.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_SdjZti6CJEVK7WmponA_aQ_eaaH5Gap';
+
+  const loginSection = document.getElementById('login');
+  const dashboard = document.getElementById('dashboard');
+  const form = document.getElementById('loginForm');
+  const loginButton = document.getElementById('loginButton');
+  const message = document.getElementById('message');
+
+  if (!window.supabase) {
+    message.textContent = 'Não foi possível carregar a conexão. Verifique sua internet e recarregue a página.';
+    return;
+  }
+
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  function showMessage(text) {
+    message.textContent = text || '';
+  }
+
+  function showLogin() {
+    loginSection.classList.remove('hidden');
+    dashboard.classList.add('hidden');
+  }
+
+  function showDashboard(profile, user) {
+    loginSection.classList.add('hidden');
+    dashboard.classList.remove('hidden');
+
+    const role = profile.role;
+    document.getElementById('userName').textContent =
+      profile.full_name || user.email || 'Usuário';
+
+    document.getElementById('userRole').textContent =
+      role === 'admin' ? 'Administrador' : 'Funcionário';
+
+    const isAdmin = role === 'admin';
+    document.getElementById('reportsCard').classList.toggle('hidden', !isAdmin);
+
+    document.getElementById('accessInfo').textContent = isAdmin
+      ? 'Você entrou como administrador. Os módulos de gestão serão ativados nas próximas etapas.'
+      : 'Você entrou como funcionário. Os módulos disponíveis serão ativados conforme as permissões configuradas.';
+  }
+
+  async function checkSession() {
+    showMessage('Verificando acesso...');
+    const { data, error } = await db.auth.getSession();
+
+    if (error) {
+      showLogin();
+      showMessage('Não foi possível verificar a sessão. Tente entrar novamente.');
+      return;
+    }
+
+    if (data.session) {
+      await loadProfile(data.session.user);
+    } else {
+      showLogin();
+      showMessage('');
+    }
+  }
+
+  async function loadProfile(user) {
+    showMessage('Carregando seu perfil...');
+
+    const { data: profile, error } = await db
+      .from('profiles')
+      .select('full_name, role')
+      .eq('user_id', user.id)
+      .single();
+
+    if (error || !profile || !['admin', 'employee'].includes(profile.role)) {
+      await db.auth.signOut();
+      showLogin();
+      showMessage('Perfil não encontrado ou sem permissão. Peça ao administrador para verificar seu cadastro.');
+      return;
+    }
+
+    showDashboard(profile, user);
+    showMessage('');
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    loginButton.disabled = true;
+    loginButton.textContent = 'Entrando...';
+    showMessage('');
+
+    try {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      const { data, error } = await db.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        showMessage('Não foi possível entrar. Confira o e-mail e a senha.');
+        return;
+      }
+
+      await loadProfile(data.user);
+    } catch (error) {
+      showMessage('Ocorreu um erro de conexão. Tente novamente.');
+    } finally {
+      loginButton.disabled = false;
+      loginButton.textContent = 'Entrar';
+    }
+  });
+
+  document.getElementById('logoutButton').addEventListener('click', async () => {
+    const { error } = await db.auth.signOut();
+    showLogin();
+    showMessage(error
+      ? 'Você saiu da tela, mas houve um erro ao encerrar a sessão. Verifique a conexão.'
+      : 'Você saiu da sua conta.');
+  });
+
+  db.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_OUT' || !session) {
+      showLogin();
+    }
+  });
+
+  checkSession();
+})();
+</script>
 </body>
 </html>
